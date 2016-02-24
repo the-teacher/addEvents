@@ -6,14 +6,98 @@
   </head>
 
   <body>
-    <script type="text/javascript">
-      JsModule.init()
-      JsModule.init()
-      console.log(JsModule)
-    </script>
 
     <p>JS Sandbox</p>
-    <p>JsModule.js</p>
+
+    <div id='el_3_0'>
+      <div id='el_2_0'>
+        <div id="el_1_0">TEST CAPTURED - FALSE</div>
+      </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+    <div id='el_3_1'>
+      <div id='el_2_1'>
+        <div id="el_1_1">TEST CAPTURED - TRUE</div>
+      </div>
+    </div>
+
+    <style>
+      /* CAPTURED FALSE */
+
+      #el_1_0{
+        padding: 20px;
+        background: red;
+      }
+      #el_2_0{
+        padding: 20px;
+        background: green;
+      }
+      #el_3_0{
+        padding: 20px;
+        background: blue;
+      }
+
+      /* CAPTURED TRUE */
+
+      #el_1_1{
+        padding: 20px;
+        background: red;
+      }
+      #el_2_1{
+        padding: 20px;
+        background: green;
+      }
+      #el_3_1{
+        padding: 20px;
+        background: blue;
+      }
+    </style>
+
+    <script type="text/javascript">
+      'use strict';
+
+      var testAction = function(e){
+        console.log(e.currentTarget)
+
+        // e.stopPropagation()
+        // e.cancelBubble = true
+      }
+
+      var el_1_0 = document.getElementById("el_1_0");
+      var el_2_0 = document.getElementById("el_2_0");
+      var el_3_0 = document.getElementById("el_3_0");
+
+      el_1_0.addEventListener("click", testAction, false);
+      el_2_0.addEventListener("click", testAction, false);
+      el_3_0.addEventListener("click", testAction, false);
+
+      // el.addEvent(event_name, handler) for MS IE
+    </script>
+
+    <script type="text/javascript">
+      'use strict';
+
+      var testAction = function(e){
+        console.log(e.currentTarget)
+
+        // e.stopPropagation()
+        // e.cancelBubble = true
+      }
+
+      var el_1_1 = document.getElementById("el_1_1");
+      var el_2_1 = document.getElementById("el_2_1");
+      var el_3_1 = document.getElementById("el_3_1");
+
+      el_1_1.addEventListener("click", testAction, true);
+      el_2_1.addEventListener("click", testAction, true);
+      el_3_1.addEventListener("click", testAction, true);
+
+      // el.addEvent(event_name, handler) for MS IE
+    </script>
 
   </body>
 </html>
